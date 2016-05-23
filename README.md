@@ -64,4 +64,4 @@ When a message is published to an SNS topic that has a Lambda function subscribe
 7. Click Create subscription.
 
 8. Watch your logs come in:
-   * Navigate to [your Logentries account](https://logentries.com/app) and watch your CloudWatch logs appear
+   * Navigate to [your Logentries account](https://logentries.com/app) and watch your SNS messages appear.

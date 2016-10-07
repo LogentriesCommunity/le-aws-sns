@@ -10,43 +10,29 @@ When a message is published to an SNS topic that has a Lambda function subscribe
 ## Deploy the script on AWS Lambda
 1. Create a new Lambda function
 
-   ![Create Function](doc/step1.png)
-
 2. On the "Select Blueprint" screen, press "Skip"
-
-   ![Choose Blueprint](doc/step2.png)
 
 3. Configure function:
    * Give your function a name
    * Set runtime to Python 2.7
 
-   ![Create Function](doc/step3.png)
-
 4. Edit code:
    * Edit the contents of ```le_config.py```
    * Replace values of ```log_token``` and ```debug_token``` with tokens obtained earlier.
-   * Create a .ZIP file, containing the updated ```le_config.py```, ```le_sns.py``` and ```le_certs.pem```
-     * Make sure the files are in the root of the ZIP archive, and **NOT** in a folder
-   * Choose "Upload a .ZIP file" in AWS Lambda and upload the archive created in previous step
-
-   ![Create Function](doc/step4.png)
+   * Create a .ZIP file, containing the updated ```le_config.py```, ```le_sns.py``` and the folder ```certifi```
+     * Make sure the files and ```certifi``` folder are in the **root** of the ZIP archive
+   * Choose "Upload a .ZIP file" in "Code entry type" dropdown and upload the archive created in previous step
 
 5. Lambda function handler and role
    * Change the "Handler" value to ```le_sns.lambda_handler```
    * Create a new basic execution role (your IAM user must have sufficient permissions to create & assign new roles)
 
-   ![Create Function](doc/step5.png)
-
 6. Allocate resources:
    * Set memory to 128 MB
    * Set timeout to ~1 minute (script only runs for seconds at a time)
 
-  ![Create Function](doc/step7.png)
-
 8. Enable function:
    * Click "Create function"
-
-   ![Create Function](doc/step8.png)
 
 ## Configuring Amazon SNS with Lambda Endpoints with the AWS Management Console
 1. Sign in to the AWS Management Console and open the Amazon SNS console at https://console.aws.amazon.com/sns/.

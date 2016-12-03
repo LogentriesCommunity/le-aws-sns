@@ -20,8 +20,8 @@ def lambda_handler(event, context):
     tokens = []
     if validate_uuid(debug_token) is True:
         tokens.append(debug_token)
-    if validate_uuid(lambda_token) is True:
-        tokens.append(lambda_token)
+    if validate_uuid(log_token) is True:
+        tokens.append(log_token)
     else:
         pass
     # Create socket connection to Logentries
